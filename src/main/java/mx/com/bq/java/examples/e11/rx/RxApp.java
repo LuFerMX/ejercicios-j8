@@ -42,7 +42,7 @@ public class RxApp{
 
 		  @Override 
 		  public void call(String elemento) {
-		      System.out.println(elemento); 
+		      System.out.println(elemento);
 		  }
 		  
         });

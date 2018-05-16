@@ -1,5 +1,6 @@
 package mx.com.bq.java.examples.e9.fecha;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,9 +20,10 @@ public class FechaApp {
         if(version == 7) {
             Calendar fecha1 = Calendar.getInstance();
             Calendar fecha2 = Calendar.getInstance();
-            fecha1.set(1991, 0, 21);
+            fecha1.set(1983, 02, 12);
             
             System.out.println( "Fecha: " + fecha1.after(fecha2) );
+            
         } else if (version == 8){
             LocalDate fecha1 = LocalDate.of(1991, 01, 21);
             LocalDate fecha2 = LocalDate.now();
@@ -114,10 +116,10 @@ public class FechaApp {
         FechaApp app = new FechaApp();
         
         try {
-//            app.verificar(8);
+            app.verificar(7);
 //            app.medirTiempo(8);
 //            app.periodoEntreFechas(8);
-            app.convertir(8);
+//            app.convertir(8);
         } catch (Exception e) {
            System.out.println("Error : "+ e.getMessage());
         }
