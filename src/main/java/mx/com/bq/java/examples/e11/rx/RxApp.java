@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rx.Observable;
-import rx.functions.Action1;
 
 public class RxApp{
         
@@ -18,17 +17,33 @@ public class RxApp{
     }
     
     public void llenarListas() {
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 1000; i++){
             lista1.add(i);
             lista2.add(i);
         }        
     }
     
     public void buscar() {
+        Observable<Integer> obs1 = Observable.from(lista1);
+        Observable<Integer> obs2 = Observable.from(lista2);
         
+        /*
+        Observable.merge(obs1, obs2).subscribe(new Action1<Integer>() {
+            @Override
+            public void call(Integer num){
+                if(num == 100){
+                    System.out.println(num);
+                }
+            }
+            
+        });
+        */
+        
+        Observable.merge(obs1,obs2).filter(x->x==100).subscribe(System.out::println);
     }
     
     public static void main(String[] args) {
+        /**
         List<String> lista = new ArrayList<>();
         lista.add("Juan");
         lista.add("Eduardo");
@@ -38,7 +53,7 @@ public class RxApp{
         lista.add("Cornelio Reyna");
         
         Observable<String> obs = Observable.from(lista);
-        obs.subscribe(new Action1<String>(){
+        obs.subscribe(new Action1<String>() {
 
 		  @Override 
 		  public void call(String elemento) {
@@ -46,7 +61,9 @@ public class RxApp{
 		  }
 		  
         });
-        
+        */
+        RxApp app = new RxApp();
+        app.buscar();
     }
         
 }
